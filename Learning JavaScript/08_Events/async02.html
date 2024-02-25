@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Projects</title>
+</head>
+<body>
+    <h1>Asyncronous Projects 2nd</h1>
+    <button id="start">START</button>
+    <button id="stop">STOP</button>
+
+
+    <script>
+        let IntervalID
+        const newH1 = function(para){
+            document.querySelector('h1').innerHTML = "Devesh Sharma"
+            console.log(para)
+
+        }
+
+        document.getElementById("start").addEventListener('click' , function (){
+            IntervalID = setInterval(newH1 , 3000 , 'Hii')
+        })
+        
+        document.getElementById("stop").addEventListener('click' , function (){
+            clearInterval(IntervalID)
+        })
+
+        
+
+
+    </script>
+
+</body>
+
+
+</html>

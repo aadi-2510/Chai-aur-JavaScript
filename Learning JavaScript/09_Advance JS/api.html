@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web API's</title>
+</head>
+<body>
+    <script>
+
+        /*
+        XMLHttpRequest (XHR) objects are used to interact with servers. You can retrieve data from a URL without having to 
+        do a full page refresh. This enables a Web page to update just part of a page without disrupting what the
+        user is doing.
+
+        for continuous tracking of xl request "onreadystatechange" method is used. 
+
+        -- there are 4 states to track API request
+        0 (unsent) 
+        1 (opened)
+        2 (headers recieved)
+        3 (loading / downloading)
+        4 (done )
+
+        console.log doesn't run on javascipt engine instead itS a dev tool created in C++ language and runs on combined
+        JS + V8 engine or browser engine. 
+
+        - to check code files of console.log read www.github/v8/v8 
+
+        */
+        const requestApi = "https://randomuser.me/api/"
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET' , requestApi)
+        xhr.onreadystatechange = function (){
+            console.log(xhr.readyState)
+            if( xhr.readyState === 4){
+                const data = JSON.parse(this.responseText)
+                console.log(data)
+            }
+        }
+
+        xhr.send() 
+
+    </script>
+
+</body>
+</html>

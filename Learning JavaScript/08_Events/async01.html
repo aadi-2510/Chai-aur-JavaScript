@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Projects</title>
+</head>
+<body>
+    <h1>Asyncronous Projects</h1>
+    <button id="stop">STOP</button>
+
+</body>
+
+<script>
+    /*
+    setTimeout : This function is used when desired pop up or namechange is reqired to be done only once.
+    
+    clearTimeout : similarly it is used to stop setTimeout property.
+
+    setInterval : this function used if repeated output is desired.
+
+    clearInterval : it is used to stop the setInterval property 
+    */
+    const num1 = function(){
+        console.log("my name is devesh")
+    }
+    setTimeout(num1 , 3000)
+
+    // example for pop up bar or name change after specified time limit using setTimeout method. 
+    const changeName = setTimeout(function (){
+        document.querySelector("h1").innerHTML = ("It's set timeout method.")
+    } , 4000)
+
+
+    // example for clearTimeOut : to stopping event set on setTimeOut
+    document.getElementById('stop').addEventListener('click' , function (){
+        clearTimeout(changeName)
+        console.log("It Stopped")
+    } )
+
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoM Creating Element</title>
+</head>
+<body style="background-color: black;">
+    
+</body>
+<script>
+    /* 
+    Following are Good Industrial Practice:
+    use "document.createTextNode('Your text')" instead of 'innerText/innerHTML' bcoz these methods 
+    overwrite values which is a heavy and time consuming operation.
+    
+    use "setAttribute" bcoz it doesn't overwrite data, instead create a new one.
+    */
+   
+   const div = document.createElement("div")
+   console.log(div);
+   div.id = (Math.round(Math.random() * 10 + 1));
+   div.className = "bossy";
+   div.setAttribute = ('title : ' , 'DoM Torreto');
+   div.style.color = "White"
+   const addText = document.createTextNode("Fuck Yu BabyLove")   
+   div.appendChild(addText)                                         //more optemised approach
+
+   document.body.appendChild(div)
+
+   
+</script>
+</html>

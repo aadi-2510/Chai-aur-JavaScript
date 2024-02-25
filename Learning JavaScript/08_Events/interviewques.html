@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+/*
+    JavaScript Events:
+    - don't use onclick in html code not a good approach
+    
+    - document.querySelector(#owl).onclick = function (){              //also not a good industrial approach
+        alert("owl is clicked") 
+    }
+
+    - document.querySelector('#images').addEventListener('click', function(e){    //best approach in industry nowadays
+        console.log(e.targ et.tagName);
+
+    - earlier used techniques were attachEvent() & JQuery for event capturing
+
+    - use eventListeners instead bcoz it not only gives onclick functionality but also gives ability of propogation
+
+    - **important Interview Questions :
+        ^read more about event object 
+        ^type, timestamp, preventDefault,
+        ^target, toElement, srcElement, currentTarget,
+        ^clientX, clientY, screenX, screenY
+        ^altkey, ctrlkey, shiftkey, keyCode 
+
+    - document.querySelector().addEventListener('click', function(e){} , false)
+        ^ this (false) is event bubbling i.e. default value of event propogation.
+        
+        * Event propogation : the mechanism of capturing events via eventListeners to record 
+        target element's ancestors or descendents is called event propogation. 
+        
+        Types of Event propogation:
+        a) Event bubbling : captures target element and traverses up the DOM hierarchy to the root.
+            SYNTAX : element.addEventListner(eventType , handler function , false) 
+        
+        b) Event Capturing: starts capturing from the root and traverses down to target element.
+            SYNTAX : element.addEventListner(eventType , handler function , true)
+
+
+
+
+        */
+
+//example for types of event propogation:
+document.querySelector('#owl').addEventListener('click' , function(e){              //bubbling phase
+console.log('UL list traverses up to the root')
+e.stopPropagation()                                                                 // for stopping element to capture root
+} , false) 
+
+document.querySelector('#images').addEventListener('click' , function(e){           //capturing phase
+console.log('owl traverses down to the target element')
+} , true) 
+
+// task remove images when clicked:
+// document.querySelector('#images').addEventListener('click' , function(e){
+//     console.log(e.target)
+//     const removeLi = e.target.parentNode;
+//     //removeLi.remove()                                                           //approach 1 for removing element
+//     removeLi.parentNode.removeChild(removeLi)                                    // approach 2 for removing element
+// } , false)
+
+// now it removes all the images if we click li so : 
+document.querySelector('#images').addEventListener('click' , function(e){
+    console.log(e.target.tagName)
+
+    if (e.target.tagName === 'IMG') {
+        console.log(e.target.id)
+        let removeLi = e.target.parentNode;
+        removeLi.remove()
+    }                                     
+} , false)
+
+
+
+</script>
+</html>

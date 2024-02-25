@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+</head>
+<body>
+    <h1>Edit & Remove Elements in DOM</h1>
+
+    <ul class="technologies">
+        <li>JavaScript</li>
+    </ul>
+
+</body>
+<script>
+    // Method 1 for Adding element  || not a optimised approach bcoz it traverse tree every single time 
+    function AddLanguage(lang) {
+        const newElement = document.createElement('li')
+        newElement.innerHTML = (`${lang}`)
+        document.querySelector('.technologies').appendChild(newElement)    
+    }
+    AddLanguage("Python")
+
+// function jdnj(pjdbf) {
+//     const hulu = document.createElement('li')
+//     hulu.innerHTML = `${pjdbf}`
+//     document.querySelector('.technologies').appendChild(hulu)    
+// }
+// jdnj('GJAB')
+
+function fuckYou (para) {
+    const newEle = document.createElement('li')
+    newEle.innerHTML = (`${para}`)
+    document.querySelector('.technologies').appendChild(newEle)
+}
+fuckYou("gajkajs")
+
+function newNode (){}
+
+// Method 2 for adding Element || preferred by hitesh sir as its a very optimised code || Industrial Approach **
+function addOptimisedLang (chupa){
+    const li = document.createElement('li')
+    li.appendChild(document.createTextNode(`${chupa}`))
+    document.querySelector('.technologies').appendChild(li)
+}
+addOptimisedLang('MongoDB')
+addOptimisedLang('React')
+addOptimisedLang('Jqury')
+addOptimisedLang('Java')
+
+// Editing element Method 1|| Replacing 
+const newItem = document.querySelector('li:nth-child(3)')
+const replace = newItem.appendChild(document.createTextNode("Abra Da Dabra"))
+newItem.replaceWith(replace)
+// document.querySelector('.technologies').appendChild(newItem)
+
+
+// edit Method 2
+const firstChild = document.querySelector('li:first-Child')
+firstChild.outerHTML = '<li>TypeScript</li>'
+
+// remove element
+const lastChild = document.querySelector('li:last-child')
+lastChild.remove()
+
+/*
+notes by neeraj sir Felix class
+-- hashing end to end encrpted ?
+-- class constructor?   
+
+- portfolio 
+- ecomm 
+- events ( regex.test())
+- OTP generation -verification
+- local storage
+
+
+
+*/
+
+
+</script>
+</html>
+
