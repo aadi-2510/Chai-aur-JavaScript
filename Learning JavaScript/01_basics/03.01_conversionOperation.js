@@ -31,11 +31,11 @@ console.log( "2" % "3" ); // 2
 console.log( "2" ** "3" ); // 8
 
 console.log( "2" + 2 + 7 ); // 227
-console.log( "2" - 2 - 7 ); // -5
-console.log( "2" * 2 * 7 ); // 56
+console.log( "2" - 2 - 7 ); // -7
+console.log( "2" * 2 * 7 ); // 28
 console.log( "2" / 2 / 7 ); // 0.14285714285714285
 console.log( "2" % 2 % 7 ); // 2
-console.log( "2" ** 2 ** 7 ); // 2097152
+console.log( "2" ** 2 ** 7 ); // 340282366920938463463374607431768211456
 
 /*
 
